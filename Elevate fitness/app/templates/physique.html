@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physique AI - Fitness Elevate</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>   
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar">    
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <i data-lucide="dumbbell"></i>
+                    <span>Fitness Elevate</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="active">Home</a>
+                    <a href="{{ url_for('bmi') }}">BMI Calculator</a>
+                    <a href="{{ url_for('physique') }}">Physique AI</a>
+                    <a href="{{ url_for('chatbot') }}">Health Chat</a>
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="form-container">
+            <h1>Personalized Fitness Plan</h1>
+            <form id="physiqueForm" class="form-container">
+                <div class="form-group">
+                    <label for="weight" class="form-label">Weight (kg)</label>
+                    <input type="number" id="weight" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="height" class="form-label">Height (cm)</label>
+                    <input type="number" id="height" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" id="age" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select id="gender" class="form-input" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="diseases" class="form-label">Medical Conditions (if any)</label>
+                    <textarea id="diseases" class="form-input" rows="3" 
+                              placeholder="List any medical conditions or diseases..."></textarea>
+                </div>
+
+                <button type="submit" id="generateButton" class="submit-button">
+                    Generate Plan
+                </button>
+            </form>
+
+            <div id="plan-result" style="display: none;"></div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

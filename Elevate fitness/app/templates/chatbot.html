@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Chat - Fitness Elevate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <i data-lucide="dumbbell"></i>
+                    <span>Fitness Elevate</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="{{ url_for('bmi') }}">BMI Calculator</a>
+                    <a href="{{ url_for('physique') }}">Physique AI</a>
+                    <a href="{{ url_for('chatbot') }}" class="active">Health Chat</a>
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Hello! I'm your AI health assistant. How can I help you today?
+                    </div>
+                </div>
+            </div>
+            <div id="thinking" class="thinking" style="display: none;">
+                <span>AI is thinking</span>
+                <div class="dot-flashing"></div>
+            </div>
+            <form id="chat-form" class="chat-input">
+                <div class="input-group">
+                    <input type="text" id="user-input" class="form-input" placeholder="Type your message..." required>
+                    <button type="submit" class="submit-button">
+                        <i data-lucide="send">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

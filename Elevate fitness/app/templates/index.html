@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Elevate</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <a href="/" class="logo">
+            <i data-lucide="dumbbell"></i>
+            <span>Fitness Elevate</span>
+          </a>
+          <div class="nav-links">
+            <a href="/" class="{{ 'active' if request.endpoint == 'home' }}">Home</a>
+            {% if session.get('user_id') %}
+                <a href="{{ url_for('bmi') }}">BMI Calculator</a>
+                <a href="{{ url_for('physique') }}">Physique AI</a>
+                <a href="{{ url_for('chatbot') }}">Health Chat</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('signin') }}">Sign In</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>
+          Transform Your Life with
+          <span class="highlight">Fitness Elevate</span>
+        </h1>
+        <p>
+          Your personal AI-powered fitness companion that creates customized
+          workout plans and dietary advice tailored to your unique needs and
+          goals.
+        </p>
+        <a href="{{ url_for('signup') }}" class="cta-button">
+          Get Started
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </section>
+
+      <!-- Features -->
+      <section class="features">
+        <div class="feature-card">
+          <i data-lucide="activity"></i>
+          <h3>Personalized Fitness Plans</h3>
+          <p>
+            AI-driven workout routines and diet plans customized to your body
+            type and goals.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <i data-lucide="brain"></i>
+          <h3>Smart Health Assistant</h3>
+          <p>
+            Get instant answers to your health and fitness questions from our AI
+            chatbot.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <i data-lucide="heart"></i>
+          <h3>Health Tracking</h3>
+          <p>
+            Monitor your BMI, track your progress, and stay motivated on your
+            fitness journey.
+          </p>
+        </div>
+      </section>
+
+      <!-- Hero Image -->
+      <section class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+          alt="Fitness Training"
+        />
+        <div class="hero-overlay">
+          <h2>Start Your Journey Today</h2>
+          <p>Transform your body and mind with AI-powered guidance</p>
+          <a href="{{ url_for('physique') }}" class="cta-button light">Create Your Plan</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+  </body>
+</html>

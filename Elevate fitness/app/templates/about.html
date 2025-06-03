@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fitness Elevate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .about-container {
+            max-width: 64rem;
+            margin: 2rem auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-card i {
+            color: var(--primary);
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <i data-lucide="dumbbell"></i>
+                    <span>Fitness Elevate</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="active">Home</a>
+                    <a href="{{ url_for('bmi') }}">BMI Calculator</a>
+                    <a href="{{ url_for('physique') }}">Physique AI</a>
+                    <a href="{{ url_for('chatbot') }}">Health Chat</a>
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="about-container">
+            <h1>About Fitness Elevate</h1>
+            
+            <p class="text-xl text-gray-600 mt-4 mb-8">
+                Fitness Elevate is a cutting-edge platform that combines artificial intelligence
+                with proven fitness and nutrition principles to help you achieve your health goals.
+                Our mission is to make personalized fitness guidance accessible to everyone.
+            </p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <i data-lucide="target"></i>
+                    <h3>Our Mission</h3>
+                    <p>To revolutionize personal fitness through AI-powered guidance and support.</p>
+                </div>
+
+                <div class="value-card">
+                    <i data-lucide="shield"></i>
+                    <h3>Our Values</h3>
+                    <p>Commitment to scientific accuracy, user privacy, and continuous improvement.</p>
+                </div>
+
+                <div class="value-card">
+                    <i data-lucide="users"></i>
+                    <h3>Our Team</h3>
+                    <p>A dedicated group of fitness experts, nutritionists, and AI specialists.</p>
+                </div>
+            </div>
+
+            <div class="benefits-list">
+                <h2>Why Choose Fitness Elevate?</h2>
+                <div class="mt-4">
+                    <div class="benefit-item">
+                        <span>Personalized AI-driven fitness and nutrition plans</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span>Real-time health and fitness guidance</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span>Evidence-based recommendations</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span>Continuous support through our AI health assistant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
